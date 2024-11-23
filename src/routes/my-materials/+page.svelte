@@ -5,8 +5,6 @@
 	const query = useQuery(api.tasks.get, {});
 </script>
 
-WTF SUKA
-
 {#if query.isLoading}
 	Loading...
 {:else if query.error}
@@ -24,5 +22,5 @@ WTF SUKA
 {/if}
 
 <div>
-  My Materials are here
+  Loaded with Convex
 </div>

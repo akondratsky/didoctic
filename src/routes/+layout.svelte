@@ -6,16 +6,13 @@
 
   let { children } = $props();
 
-  console.log('PUBLIC_CONVEX_URL', PUBLIC_CONVEX_URL);
   setupConvex(PUBLIC_CONVEX_URL);
 </script>
 
 <Navbar />
 
 <main>
-  body
   {@render children()}
-  end of body
 </main>
 
 <style>
