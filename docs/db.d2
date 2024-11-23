@@ -1,0 +1,39 @@
+Users {
+  shape: sql_table
+  id: int { constraint: primary_key }
+}
+
+Courses {
+  shape: sql_table
+  id: int { constraint: primary_key }
+  title: varchar
+}
+
+Lessons {
+  shape: sql_table
+  id: int { constraint: primary_key }
+  title: varchar
+}
+
+Blocks {
+  shape: sql_table
+  id: int { constraint: primary_key }
+  lesson_id: int { constraint: foreign_key }
+  blockType: BlockType
+  content: jsonb
+}
+
+CoursesToLessons {
+  shape: sql_table
+  it: int { constraint: primary_key }
+  course_id: int { constraint: foreign_key }
+  lesson_id: int { constraint: foreign_key }
+  order: int # order of lesson in course
+}
+
+MarkdownModules {
+  shape: sql_table
+  id: int { constraint: primary_key }
+  title: varchar
+  text: varchar
+}

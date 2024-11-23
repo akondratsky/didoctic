@@ -1,7 +1,13 @@
 <script lang="ts">
   import 'chota';
   import Navbar from '$lib/Navbar.svelte';
-	let { children } = $props();
+	import { PUBLIC_CONVEX_URL } from '$env/static/public';
+	import { setupConvex } from 'convex-svelte';
+
+  let { children } = $props();
+
+  console.log('PUBLIC_CONVEX_URL', PUBLIC_CONVEX_URL);
+  setupConvex(PUBLIC_CONVEX_URL);
 </script>
 
 <Navbar />
