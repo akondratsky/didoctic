@@ -1,26 +1,25 @@
 <script lang="ts">
-	import { useQuery } from 'convex-svelte';
-	import { api } from '$convex/api.js';
+import { useSearchService } from '$lib/di';
 
-	const query = useQuery(api.tasks.get, {});
+const searchService = useSearchService();
+
+const promise = searchService.getAllMaterials();
 </script>
 
-{#if query.isLoading}
-	Loading...
-{:else if query.error}
-	failed to load: {query.error.toString()}
-{:else}
-	<ul>
-		{#each query.data as task}
-			<li>
-				{task.isCompleted ? '☑' : '☐'}
-				<span>{task.text}</span>
-				<span>assigned by {task.assigner}</span>
-			</li>
-		{/each}
-	</ul>
-{/if}
+{#await promise}
 
-<div>
-  Loaded with Convex
-</div>
+	<p>Loading...</p>
+
+{:then materials}
+	
+	<p>Found Materials: {materials.length}</p>
+
+	{#each materials as material}
+		<p>Title: {material.title}</p>
+	{/each}
+
+{:catch error}
+	Oopsie...
+	<p>{error.message}</p>
+{/await}
+
