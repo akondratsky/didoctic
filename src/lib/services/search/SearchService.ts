@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 import { DI } from '$lib/di';
-import type { ISearchResult } from '$lib/entities/ISearchResult';
+import type { ISearchResult } from '$lib/entities';
 import type { ISearchProvider, ISearchService } from '$lib/interfaces';
 
 @injectable()

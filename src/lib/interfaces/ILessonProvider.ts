@@ -1,11 +1,11 @@
-import type { ILesson } from "$lib/entities";
+import type { ILesson } from '$lib/entities';
 
 export interface ILessonProvider {
-  createLesson(lesson: Omit<ILesson, "id">): Promise<ILesson>;
+  createLesson(lesson: Omit<ILesson, 'id'>): Promise<ILesson['id']>;
 
-  getLessonById(id: number): Promise<ILesson>;
+  getLessonById(id: ILesson['id']): Promise<ILesson>;
 
   updateLesson(lesson: ILesson): Promise<void>;
 
-  deleteLesson(id: number): Promise<void>;
+  deleteLesson(id: ILesson['id']): Promise<void>;
 }

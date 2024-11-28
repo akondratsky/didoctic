@@ -1,7 +1,7 @@
 <script lang="ts">
 import 'chota';
 import 'reflect-metadata';
-import Navbar from '$lib/Navbar.svelte';
+import Navbar from '$lib/components/Navbar.svelte';
 let { children } = $props();
 </script>
 

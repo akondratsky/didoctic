@@ -9,19 +9,21 @@ export class LessonService implements ILessonService {
     @inject(DI.LessonProvider) private lessonProvider: ILessonProvider,
   ) {}
 
-  async createLesson(lesson: Omit<ILesson, 'id'>): Promise<ILesson> {
+  public async createLesson(
+    lesson: Omit<ILesson, 'id'>,
+  ): Promise<ILesson['id']> {
     return this.lessonProvider.createLesson(lesson);
   }
 
-  async getLessonById(id: number): Promise<ILesson> {
+  public async getLessonById(id: ILesson['id']): Promise<ILesson> {
     return this.lessonProvider.getLessonById(id);
   }
 
-  async updateLesson(lesson: ILesson): Promise<void> {
+  public async updateLesson(lesson: ILesson): Promise<void> {
     return this.lessonProvider.updateLesson(lesson);
   }
 
-  async deleteLesson(id: number): Promise<void> {
+  public async deleteLesson(id: ILesson['id']): Promise<void> {
     return this.lessonProvider.deleteLesson(id);
   }
 }

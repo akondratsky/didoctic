@@ -1,5 +1,5 @@
-import type { IBlock } from '$lib/entities/IBlock';
+import type { IBlock } from '$lib/entities';
 
 export type MarkdownBlock = IBlock<{
-	text: string;
+  text: string;
 }>;

@@ -1,8 +1,8 @@
-import type { ILesson } from '$lib/entities/ILesson';
+import type { ILesson } from '$lib/entities';
 
 export interface ICourse {
-	id: number;
-	title: string;
-	description: string;
-	lessons: ILesson[];
+  id: string;
+  title: string;
+  description: string;
+  lessons: ILesson[];
 }
